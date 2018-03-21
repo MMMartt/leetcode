@@ -1,7 +1,7 @@
 const assert = require('assert')
 const solution = require('./main')
 
-describe('solution', () => {
+describe('0001-solution', () => {
   it('should get [2, 7, 11, 15], 9', () => {
     assert.deepEqual(solution([2, 7, 11, 15], 9), [0, 1])
   })

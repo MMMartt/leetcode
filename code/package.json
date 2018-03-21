@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "new": "node new",
+    "test": "mocha */*.spec.js"
+  },
+  "dependencies": {
+    "mocha": "^5.0.4"
+  }
+}

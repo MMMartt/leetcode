@@ -1,7 +1,7 @@
 const assert = require('assert')
 const solution = require('./main')
 
-describe('solution', () => {
+describe('0003-solution', () => {
   it('should get abcabcbb', () => {
     assert.equal(solution('abcabcbb'), 3)
   })

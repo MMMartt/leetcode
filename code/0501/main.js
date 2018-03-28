@@ -28,8 +28,42 @@ return [2].
  * @return {number[]}
  */
 const findMode = root => {
+  let maxes = [root]
+  let maxCount = 1
+  let currentCount = 1
+  let currentNode = root
+  const countNode = root => {
+    return root === null ? 0 : (1 + countNode(root.left) + countNode(root.right))
+  }
+  const simplifyNode = root => {
+    let wipeCurrent = root
+    while (wipeCurrent !== null && (wipeCurrent.left.val === root.val || wipeCurrent.right.val === root.val)) {
+      if (wipeCurrent.left && wipeCurrent.left.val === wipeCurrent.val) {
+        currentCount += 1 + countNode(wipeCurrent.left.right)
+        wipeCurrent = {
+          val: wipeCurrent.val,
+          left: wipeCurrent.left.left,
+          right: wipeCurrent.right
+        }
+      }
+      if (wipeCurrent.right && wipeCurrent.right.val === wipeCurrent.val) {
+        currentCount += 1 + countNode(wipeCurrent.right.left)
+        wipeCurrent = {
+          val: wipeCurrent.val,
+          left: wipeCurrent.right.right,
+          right: wipeCurrent.left
+        }
+      }
+    }
+    return wipeCurrent
+  }
+  const adjustTree = beLeft => root => {
+    if (beLeft) {
+    }
+  }
   while (currentNode !== null) {
-
+    // currentCount increase
+    simplifyNode(currentNode)
   }
   return [2]
 }
@@ -44,31 +78,6 @@ const findMode = root => {
  * @return {[number[], number]}
  */
 const findResult = root => {
-  if (root === null) return {maxes: [], count: 0, rootCount: 0}
-  const {val, left, right} = root
-  const leftR = findResult(left)
-  const rightR = findResult(right)
-  const rightEqual = rightR.val === val
-  const leftEqual = leftR.val === val
-  let rootCount = 1
-  let maxes = []
-  if (leftEqual && rightEqual) {
-    rootCount += leftR.rootCount + rightR.rootCount
-    if (rightR.count === rightR.count && rootCount <= leftR.count) {
-      maxes = [...leftR.maxes, ...rightR.maxes]
-    }
-  } else if (leftEqual) {
-    rootCount += leftR.rootCount
-    if (leftR.count === rightR.count && rootCount <= leftR.count) {
-      if (rightR.rootCount < leftR.count) {
-        maxes = [...leftR.maxes, ...rightR.maxes]
-      } else if (rightR.rootCount === leftR.count) {
-        maxes = [...leftR.maxes, ...rightR.maxes, rightR.val]
-      }
-    }
-  } else if (rightEqual) {
-    rootCount += rightR.rootCount
-  } else {
-  }
+
 }
 module.exports = solution

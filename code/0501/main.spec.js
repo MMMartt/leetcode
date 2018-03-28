@@ -1,7 +1,7 @@
 const assert = require('assert')
 const solution = require('./main')
 
-describe('solution', () => {
+describe('0654-solution', () => {
   const makeTree = ([val, ...other]) => {
     return val ? {
       val,

@@ -58,14 +58,11 @@ const isPossible = nums => {
     if (current !== currentValue) {
       if (current !== currentValue + 1) {
         isTrue = seqChange(valueCount-lastCount)
-        console.log(startIndexes, '0', current, valueCount, lastCount, -valueCount, isTrue, currentPos)
         isTrue = seqChange(-valueCount)
-        console.log(startIndexes, '0', current, valueCount, lastCount, -valueCount, isTrue, currentPos)
         lastCount = 0
         valueCount = 1
       } else {
         isTrue = seqChange(valueCount - lastCount)
-        console.log(startIndexes, '1', current, valueCount, lastCount, valueCount - lastCount, isTrue, currentPos)
         lastCount = valueCount
         valueCount = 1
       }
@@ -77,10 +74,8 @@ const isPossible = nums => {
       valueCount++
     }
   }
-  isTrue = seqChange(valueCount - lastCount)
-  console.log(startIndexes, '2', nums[nums.length - 1], valueCount, lastCount, valueCount - lastCount, isTrue, currentPos)
+  seqChange(valueCount - lastCount)
   isTrue = seqChange(-valueCount)
-  console.log(startIndexes, '2', nums[nums.length - 1], valueCount, lastCount, -valueCount, isTrue, currentPos)
   return isTrue
 }
 

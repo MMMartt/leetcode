@@ -28,56 +28,48 @@ return [2].
  * @return {number[]}
  */
 const findMode = root => {
-  let maxes = [root]
   let maxCount = 1
   let currentCount = 1
-  let currentNode = root
-  const countNode = root => {
-    return root === null ? 0 : (1 + countNode(root.left) + countNode(root.right))
-  }
-  const simplifyNode = root => {
-    let wipeCurrent = root
-    while (wipeCurrent !== null && (wipeCurrent.left.val === root.val || wipeCurrent.right.val === root.val)) {
-      if (wipeCurrent.left && wipeCurrent.left.val === wipeCurrent.val) {
-        currentCount += 1 + countNode(wipeCurrent.left.right)
-        wipeCurrent = {
-          val: wipeCurrent.val,
-          left: wipeCurrent.left.left,
-          right: wipeCurrent.right
+  let maxes = []
+  const nodeStack = []
+  let node = root
+  let pValue
+  let cValue
+  while (nodeStack.length !== 0 || node !== null) {
+    if (node === null) {
+      node = nodeStack.pop()
+      if (pValue === undefined) {
+        pValue = node.val
+        cValue = node.val
+      } else {
+        cValue = node.val
+        if (pValue === node.val) {
+          currentCount++
+        } else {
+          if (currentCount < maxCount) {
+          } else if (currentCount === maxCount) {
+            maxes.push(pValue)
+          } else {
+            maxCount = currentCount
+            maxes = [pValue]
+          }
+          currentCount = 1
+          pValue = cValue
         }
       }
-      if (wipeCurrent.right && wipeCurrent.right.val === wipeCurrent.val) {
-        currentCount += 1 + countNode(wipeCurrent.right.left)
-        wipeCurrent = {
-          val: wipeCurrent.val,
-          left: wipeCurrent.right.right,
-          right: wipeCurrent.left
-        }
-      }
-    }
-    return wipeCurrent
-  }
-  const adjustTree = beLeft => root => {
-    if (beLeft) {
+      node = node.right
+    } else {
+      nodeStack.push(node)
+      node = node.left
     }
   }
-  while (currentNode !== null) {
-    // currentCount increase
-    simplifyNode(currentNode)
+  if (currentCount > maxCount) {
+    maxes = [cValue]
+  } else if (currentCount === maxCount) {
+    if (root !== null) {
+      maxes.push(cValue)
+    }
   }
-  return [2]
+  return maxes
 }
-/**
- * @typedef {Object} Result
- * @property {number[]} maxes
- * @property {number} count
- * @property {number} rootCount
- */
-/**
- * @param {TreeNode} root
- * @return {[number[], number]}
- */
-const findResult = root => {
-
-}
-module.exports = solution
+module.exports = findMode

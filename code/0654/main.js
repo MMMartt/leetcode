@@ -18,6 +18,21 @@ Output: return the tree root node representing the following tree:
         1
 Note:
   The size of the given array will be in the range [1,1000].*/
+
+/**
+ * @file
+ * @desc: this is slow, we should avoid to modify the tree :) anyway, this is accepted
+ */
+/**
+ * @desc: need to be removed on leetcode
+ * @param val
+ * @constructor
+ */
+function TreeNode(val) {
+  this.val = val
+  this.left = this.right = null
+}
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -46,52 +61,37 @@ const parseArrayToTree = ([first, ...numbers], tree) => {
  */
 const addToTree = (tree, valueToAdd) => {
   if (tree === null) return emptyTree(valueToAdd)
-
-  const {val, left, right} = tree
-  return valueToAdd !== undefined
-    ? tree.val < valueToAdd
-      ? {val: valueToAdd, left: tree, right: null}
-      : {val, left, right: addToTree(right, valueToAdd)}
-    : tree
+  if (valueToAdd === undefined) {
+    return tree
+  }
+  if (tree.val < valueToAdd) {
+    const root = new TreeNode(valueToAdd)
+    root.left = tree
+    root.right = null
+    return root
+  }
+  const root = new TreeNode(tree.val)
+  root.left = tree.left
+  root.right = addToTree(tree.right, valueToAdd)
+  return root
 }
-
 /**
  * build an empty tree
  * @param {number} val
- * @returns {TreeNode}
+ * @returns {?TreeNode}
  */
 const emptyTree = val => {
-  return val === undefined
-    ? null
-    : {
-      val,
-      left: null,
-      right: null
-    }
-}
-function TreeNode(val) {
-  this.val = val;
-  this.left = this.right = null;
-}
-function treeFromObject(object) {
-  if (object === null)
-    return null;
-
-  const root = new TreeNode(object.val);
-  root.left = treeFromObject(object.left)
-  root.right = treeFromObject(object.right)
-
-  return root;
+  if (val === undefined) {
+    return null
+  }
+  return new TreeNode(val)
 }
 /**
  * @param {number[]} nums
  * @return {TreeNode}
  */
 const constructMaximumBinaryTree = nums => {
-  // return newTree(parseArrayToTree(nums, null))
-  // console.log(treeFromObject(parseArrayToTree(nums, null)))
-  return treeFromObject(parseArrayToTree(nums, null))
-  // return parseArrayToTree(nums, null)
+  return parseArrayToTree(nums, null)
 }
 
 module.exports = constructMaximumBinaryTree

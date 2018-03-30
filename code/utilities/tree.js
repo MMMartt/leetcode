@@ -10,7 +10,7 @@ function TreeNode(val) {
 
 /**
  * return leetcode result format array of TreeNode
- * @param {TreeNode} rawObject
+ * @param {?TreeNode} rawObject
  * @returns {number[]}
  */
 const leetcodeBfs = rawObject => {
@@ -35,7 +35,7 @@ const leetcodeBfs = rawObject => {
 /**
  * if we use immutable object, it will be difficult to add next left/right value for previous node
  * @param {number[]} array
- * @returns {TreeNode}
+ * @returns {?TreeNode}
  */
 const leetcodeArray2Node = array => {
   if (array.length === 0) {

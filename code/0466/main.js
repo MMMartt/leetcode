@@ -56,24 +56,52 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
     }
     ends.push([indexesOfValue[0][i], currentPosition, cycleCount])
   }
-  let m = -1
-  let cycleCount = 0
-  let currentPosition = -1
-  while (cycleCount < n1) {
-    m++
-    let result = ends.find(end => end[0] > currentPosition)
-    if (result === undefined) {
-      result = ends[0]
-      cycleCount += 1
+  const points = ends.map(([outIndex, position, cycle]) => {
+    const next = ends.findIndex(([inIndex]) => inIndex > position)
+    if (next === -1) {
+      return [outIndex, position, cycle, 0, 1]
     }
-    currentPosition = result[1]
-    cycleCount += result[2]
-    console.log(currentPosition, cycleCount, m)
+    return [outIndex, position, cycle, next, 0]
+  })
+  console.log(points)
+  let m = -1
+  let currentPosition = 0
+  let cycleCount = 0
+  let newCycle = 0
+  let arrived = indexesOfValue[0].map(() => [])
+
+  let findCircle = false
+  while (cycleCount < n1) {
+    cycleCount += newCycle
+
+    m++
+    let current = points[currentPosition]
+    cycleCount += current[2]
+    currentPosition = current[3]
+    newCycle = current[4]
+    if (!findCircle) {
+      if (arrived[currentPosition].length === 2) {
+        findCircle = true
+        let circleMStep = m - arrived[currentPosition][0]
+        let circleCStep = cycleCount - arrived[currentPosition][1]
+        console.log(circleMStep, circleCStep, currentPosition, 'fo')
+        const restCycle = n1 - cycleCount - 1
+        const circleRunTimes = (restCycle - restCycle % circleCStep) / circleCStep
+        cycleCount += circleRunTimes * circleCStep
+        console.log(circleRunTimes)
+        m += circleRunTimes * circleMStep
+        console.log(m)
+      } else {
+        console.log(m, cycleCount, currentPosition, 'in')
+        arrived[currentPosition].push(m, cycleCount)
+      }
+    }
+    // console.log('cycleCount ', cycleCount, ' currentPos ', currentPosition, ' new ', newCycle)
   }
-  console.log(indexesOfValue)
-  console.log(ends)
+  // console.log(indexesOfValue)
+  // console.log(ends)
   console.log(m, n1, n2)
-  console.log((m - m % n2) / n2)
+  // console.log((m - m % n2) / n2)
   return (m - m % n2) / n2
 }
 

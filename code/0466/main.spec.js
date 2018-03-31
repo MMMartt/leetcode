@@ -25,7 +25,18 @@ describe('0466-solution', () => {
       1000000,
       'a',
       1000000
-    ))
+    ), 100)
+  })
+  it('should get "nlhqgllunmelayl"' +
+    '2' +
+    '"lnl"' +
+    '1', () => {
+    assert.equal(solution(
+      'nlhqgllunmelayl',
+      2,
+      'lnl',
+      1
+    ), 3)
   })
 
 })

@@ -63,7 +63,6 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
     }
     return [outIndex, position, cycle, next, 0]
   })
-  console.log(points)
   let m = -1
   let currentPosition = 0
   let cycleCount = 0
@@ -84,15 +83,11 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
         findCircle = true
         let circleMStep = m - arrived[currentPosition][0]
         let circleCStep = cycleCount - arrived[currentPosition][1]
-        console.log(circleMStep, circleCStep, currentPosition, 'fo')
         const restCycle = n1 - cycleCount - 1
         const circleRunTimes = (restCycle - restCycle % circleCStep) / circleCStep
         cycleCount += circleRunTimes * circleCStep
-        console.log(circleRunTimes)
         m += circleRunTimes * circleMStep
-        console.log(m)
       } else {
-        console.log(m, cycleCount, currentPosition, 'in')
         arrived[currentPosition].push(m, cycleCount)
       }
     }
@@ -100,7 +95,6 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
   }
   // console.log(indexesOfValue)
   // console.log(ends)
-  console.log(m, n1, n2)
   // console.log((m - m % n2) / n2)
   return (m - m % n2) / n2
 }

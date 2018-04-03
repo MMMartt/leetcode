@@ -2,7 +2,7 @@ const assert = require('assert')
 const solution = require('./main')
 const leetcodeArray2Node = require('../utilities/tree').leetcodeArray2Node
 
-describe('solution', () => {
+describe('0098-solution', () => {
   it('should get [1,2,3]', () => {
     assert.equal(solution(leetcodeArray2Node([1, 2, 3])), false)
   })

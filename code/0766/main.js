@@ -40,7 +40,6 @@ const isToeplitzMatrix = matrix => {
     let j = 0
     for (; j < column - 1; j++) {
       if (curr[j] !== values[line - i + j - 1]) {
-        console.log(values, curr, line, i, j)
         return false
       }
     }

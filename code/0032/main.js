@@ -7,7 +7,6 @@ const longestValidParentheses = (arg) => {
   let stackParentheses = []
   let lastMax = 0
   let innerMax = 0
-  let broken = false
   for (let i in characters) {
     const cha = characters[i]
     switch (cha) {
@@ -18,11 +17,7 @@ const longestValidParentheses = (arg) => {
       case ')':
         if (stackParentheses.length > 0) {
           if (stackParentheses.length === 1) {
-            if (!broken) {
-              lastMax += i - stackParentheses[stackParentheses.length - 1] + 1
-            } else {
-              lastMax = Math.max(lastMax, i - stackParentheses[stackParentheses.length - 1] + 1)
-            }
+            lastMax += i - stackParentheses[stackParentheses.length - 1] + 1
           } else {
             innerMax = i - stackParentheses[stackParentheses.length - 1] + 1
           }

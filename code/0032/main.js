@@ -10,7 +10,6 @@ const longestValidParentheses = (str) => {
     const cha = characters[i]
     switch (cha) {
       case '(':
-        broken = false
         stackParentheses.push(i)
         break
       case ')':

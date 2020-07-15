@@ -1,7 +1,7 @@
 const assert = require('assert')
 const solution = require('./main')
 
-describe('solution', () => {
+describe('0051-solution', () => {
   it('should get basic solution', () => {
     /*     [
       [".Q..",  // Solution 1

@@ -1,6 +1,8 @@
 {
+  "license": "WTFPL",
   "scripts": {
-    "new": "node new",
+    "new": "node modify new",
+    "delete": "node modify remove",
     "test": "mocha [0-9]*/*.spec.js"
   },
   "dependencies": {

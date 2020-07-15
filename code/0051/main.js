@@ -25,7 +25,7 @@
  * @return {string[][]}
  */
 const solution = arg => {
-  return true
+  return []
 }
 
 module.exports = solution

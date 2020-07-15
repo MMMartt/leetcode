@@ -70,11 +70,7 @@ const leetcodeArray2Node = array => {
  */
 const preOrder = tree => {
   return tree !== null
-    ? [
-      tree.val,
-      ...preOrder(tree.left),
-      ...preOrder(tree.right),
-    ]
+    ? [tree.val, ...preOrder(tree.left), ...preOrder(tree.right)]
     : []
 }
 /**
@@ -84,11 +80,7 @@ const preOrder = tree => {
  */
 const inOrder = tree => {
   return tree !== null
-    ? [
-      ...inOrder(tree.left),
-      tree.val,
-      ...inOrder(tree.right),
-    ]
+    ? [...inOrder(tree.left), tree.val, ...inOrder(tree.right)]
     : []
 }
-module.exports  = {leetcodeBfs, leetcodeArray2Node}
+module.exports = { leetcodeBfs, leetcodeArray2Node }

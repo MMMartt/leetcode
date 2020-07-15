@@ -10,9 +10,21 @@ describe('0100-solution', () => {
     }
   }
   it('should get [1,2,null]', () => {
-    assert.equal(solution(makeTree([1, [2, null, null], null]), makeTree([1, [2, null, null], null])), true)
+    assert.equal(
+      solution(
+        makeTree([1, [2, null, null], null]),
+        makeTree([1, [2, null, null], null])
+      ),
+      true
+    )
   })
   it('should get [1,2,null] [1,null,2]', () => {
-    assert.equal(solution(makeTree([1, null, [2, null, null]]), makeTree([1, [2, null, null], null])), false)
+    assert.equal(
+      solution(
+        makeTree([1, null, [2, null, null]]),
+        makeTree([1, [2, null, null], null])
+      ),
+      false
+    )
   })
 })

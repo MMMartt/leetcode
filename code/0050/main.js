@@ -17,9 +17,13 @@ Output: 9.26100*/
 const myPow = (x, n) => {
   return Array.from(n.toString(2)).reduceRight(
     ([result, curr], each) => {
-      return (each === '0' ? [result, curr * curr] : each !== '-' ? [result * curr, curr * curr] : [1 / result, curr])
-    }
-    , [1, x]
+      return each === '0'
+        ? [result, curr * curr]
+        : each !== '-'
+        ? [result * curr, curr * curr]
+        : [1 / result, curr]
+    },
+    [1, x]
   )[0]
 }
 

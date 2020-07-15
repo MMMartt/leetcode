@@ -57,7 +57,7 @@ const isPossible = nums => {
     const current = nums[i]
     if (current !== currentValue) {
       if (current !== currentValue + 1) {
-        isTrue = seqChange(valueCount-lastCount)
+        isTrue = seqChange(valueCount - lastCount)
         isTrue = seqChange(-valueCount)
         lastCount = 0
         valueCount = 1

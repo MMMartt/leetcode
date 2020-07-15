@@ -36,6 +36,6 @@ const jump = nums => {
     }
   }
   return result
-};
+}
 
 module.exports = jump

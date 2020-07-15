@@ -15,6 +15,6 @@ describe('0162-solution', () => {
     assert.equal(solution([1, 2, 3, 4, 5, 2, 1]), 4)
   })
   it('should get [1,2]', () => {
-    assert.equal(solution([1,2]), 1)
+    assert.equal(solution([1, 2]), 1)
   })
 })

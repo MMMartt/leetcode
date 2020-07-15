@@ -41,5 +41,4 @@ describe('0032-solution', () => {
   it('should get )(())))(())())', () => {
     assert.equal(solution(')(())))(())())'), 6)
   })
-
 })

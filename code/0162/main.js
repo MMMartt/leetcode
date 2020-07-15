@@ -21,7 +21,7 @@ const findPeakElement = nums => {
     }
     preVal = nums[i]
   }
-  if (nums.length > 1 &&  nums[nums.length - 1] > nums[nums.length - 2]) {
+  if (nums.length > 1 && nums[nums.length - 1] > nums[nums.length - 2]) {
     return nums.length - 1
   }
   return peakIndex

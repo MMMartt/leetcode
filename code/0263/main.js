@@ -11,7 +11,8 @@ Note:
  * @return {boolean}
  */
 const isUgly = num => {
-  let f2 = true, f3 = true
+  let f2 = true,
+    f3 = true
   while (num !== 0 && num !== 1 && num !== 3 && num !== 5 && num !== 2) {
     if (f2 && num % 2 === 0) {
       num = num / 2
@@ -28,7 +29,7 @@ const isUgly = num => {
       return false
     }
   }
-  return num !== 0;
+  return num !== 0
 }
 // ma de
 // /**

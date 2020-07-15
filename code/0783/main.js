@@ -35,11 +35,7 @@ The BST is always valid, each node's value is an integer, and each node's value 
  */
 const inOrder = tree => {
   return tree !== null
-    ? [
-      ...inOrder(tree.left),
-      tree.val,
-      ...inOrder(tree.right),
-    ]
+    ? [...inOrder(tree.left), tree.val, ...inOrder(tree.right)]
     : []
 }
 
@@ -56,8 +52,8 @@ const minDiffInBST = root => {
         : min === undefined
         ? value - last
         : min > value - last
-          ? value - last
-          : min
+        ? value - last
+        : min,
     ]
   }, [])[1]
 }

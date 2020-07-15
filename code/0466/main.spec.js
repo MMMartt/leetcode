@@ -17,26 +17,23 @@ describe('0466-solution', () => {
   it('should get "bacaba" 3 "abacab 1', () => {
     assert.equal(solution('bacaba', 3, 'abacab', 1), 2)
   })
-  it('should get' +
-    '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" 1000000 ' +
-    '"a" 1000000', () => {
-    assert.equal(solution(
-      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      1000000,
-      'a',
-      1000000
-    ), 100)
+  it(
+    'should get' +
+      '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" 1000000 ' +
+      '"a" 1000000',
+    () => {
+      assert.equal(
+        solution(
+          'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+          1000000,
+          'a',
+          1000000
+        ),
+        100
+      )
+    }
+  )
+  it('should get "nlhqgllunmelayl"' + '2' + '"lnl"' + '1', () => {
+    assert.equal(solution('nlhqgllunmelayl', 2, 'lnl', 1), 3)
   })
-  it('should get "nlhqgllunmelayl"' +
-    '2' +
-    '"lnl"' +
-    '1', () => {
-    assert.equal(solution(
-      'nlhqgllunmelayl',
-      2,
-      'lnl',
-      1
-    ), 3)
-  })
-
 })

@@ -5,5 +5,8 @@
   },
   "dependencies": {
     "mocha": "^5.0.4"
+  },
+  "devDependencies": {
+    "nyc": "^15.1.0"
   }
 }

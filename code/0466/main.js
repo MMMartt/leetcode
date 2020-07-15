@@ -31,7 +31,10 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
    */
   const p2i = (srcString, desString) => {
     const findAllIndexIn = array => value => {
-      return array.map((v, i) => [v, i]).filter((v) => v[0] === value).map(([v, i]) => i)
+      return array
+        .map((v, i) => [v, i])
+        .filter(v => v[0] === value)
+        .map(([v, i]) => i)
     }
     return desString.map(findAllIndexIn(srcString))
   }
@@ -46,7 +49,9 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
     let currentPosition = indexesOfValue[0][i]
     let cycleCount = 0
     for (let j = 1; j < indexesOfValue.length; j++) {
-      const valueFound = indexesOfValue[j].find(position => position > currentPosition)
+      const valueFound = indexesOfValue[j].find(
+        position => position > currentPosition
+      )
       if (valueFound === undefined) {
         cycleCount++
         currentPosition = indexesOfValue[j][0]
@@ -84,7 +89,8 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
         let circleMStep = m - arrived[currentPosition][0]
         let circleCStep = cycleCount - arrived[currentPosition][1]
         const restCycle = n1 - cycleCount - 1
-        const circleRunTimes = (restCycle - restCycle % circleCStep) / circleCStep
+        const circleRunTimes =
+          (restCycle - (restCycle % circleCStep)) / circleCStep
         cycleCount += circleRunTimes * circleCStep
         m += circleRunTimes * circleMStep
       } else {
@@ -96,7 +102,7 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
   // console.log(indexesOfValue)
   // console.log(ends)
   // console.log((m - m % n2) / n2)
-  return (m - m % n2) / n2
+  return (m - (m % n2)) / n2
 }
 
 module.exports = getMaxRepetitions

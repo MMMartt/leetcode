@@ -25,9 +25,15 @@ describe('0098-solution', () => {
     assert.equal(solution(leetcodeArray2Node([4, 3, 5, 1, 2, null, 6])), false)
   })
   it('should get [4,3,5,1,null,null,6]', () => {
-    assert.equal(solution(leetcodeArray2Node([4, 3, 5, 1, null, null, 6])), true)
+    assert.equal(
+      solution(leetcodeArray2Node([4, 3, 5, 1, null, null, 6])),
+      true
+    )
   })
   it('should get [10,5,15,null,null,6,20]', () => {
-    assert.equal(solution(leetcodeArray2Node([10,5,15,null,null,6,20])), false)
+    assert.equal(
+      solution(leetcodeArray2Node([10, 5, 15, null, null, 6, 20])),
+      false
+    )
   })
 })

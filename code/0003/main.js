@@ -25,6 +25,6 @@ const lengthOfLongestSubstring = s => {
     usedSet[s[i]] = i
   }
   return max
-};
+}
 
 module.exports = lengthOfLongestSubstring

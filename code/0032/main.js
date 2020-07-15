@@ -2,7 +2,7 @@
  * @param {string} str
  * @return {number}
  */
-const longestValidParentheses = (str) => {
+const longestValidParentheses = str => {
   const characters = Array.from(str)
   let stackParentheses = []
   let max = 0

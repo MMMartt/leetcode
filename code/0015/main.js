@@ -65,7 +65,7 @@ const threeSum = nums => {
       continue
     }
     /* j ----> expect <---- k */
-    for (let j = i + 1, k = nums.length - 1; j < k;) {
+    for (let j = i + 1, k = nums.length - 1; j < k; ) {
       if (nums[i] + nums[j] + nums[k] === 0) {
         result.push([nums[i], nums[j], nums[k]])
         j++

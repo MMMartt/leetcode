@@ -25,7 +25,10 @@ const maxSumOfThreeSubarrays = (nums, k) => {
   const oneSets = []
   const twoSets = []
   const threeSets = []
-  let current = 0, oneIndex = 0, twoIndex = 0, threeIndex = 0
+  let current = 0,
+    oneIndex = 0,
+    twoIndex = 0,
+    threeIndex = 0
   nums.forEach((v, i) => {
     current = current + v
     if (i >= k - 1) {
@@ -35,14 +38,28 @@ const maxSumOfThreeSubarrays = (nums, k) => {
         oneSets.push(oneSets[oneIndex - 1])
       }
       if (i >= 2 * k - 1) {
-        if (twoSets[0] === undefined || current + oneSets[oneIndex - k][VALUES] > twoSets[twoIndex - 1][VALUES]) {
-          twoSets.push([[...oneSets[oneIndex- k][INDEXES], oneIndex], current + oneSets[oneIndex - k][VALUES]])
+        if (
+          twoSets[0] === undefined ||
+          current + oneSets[oneIndex - k][VALUES] >
+            twoSets[twoIndex - 1][VALUES]
+        ) {
+          twoSets.push([
+            [...oneSets[oneIndex - k][INDEXES], oneIndex],
+            current + oneSets[oneIndex - k][VALUES],
+          ])
         } else {
           twoSets.push(twoSets[twoIndex - 1])
         }
         if (i >= 3 * k - 1) {
-          if (threeSets[0] === undefined || current + twoSets[twoIndex - k][VALUES] > threeSets[threeIndex - 1][VALUES]) {
-            threeSets.push([[...twoSets[twoIndex - k][INDEXES], oneIndex], current + twoSets[twoIndex - k][VALUES]])
+          if (
+            threeSets[0] === undefined ||
+            current + twoSets[twoIndex - k][VALUES] >
+              threeSets[threeIndex - 1][VALUES]
+          ) {
+            threeSets.push([
+              [...twoSets[twoIndex - k][INDEXES], oneIndex],
+              current + twoSets[twoIndex - k][VALUES],
+            ])
           } else {
             threeSets.push(threeSets[threeIndex - 1])
           }

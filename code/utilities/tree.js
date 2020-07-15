@@ -29,6 +29,7 @@ const leetcodeBfs = rawObject => {
     }
     node = nodeQueue.shift()
   }
+  // @ts-ignore
   return result
 }
 

@@ -2,4 +2,15 @@
   // "javascript.suggestionActions.enabled": false,
   "mocha.files.glob": "**/**.spec.js",
   "javascript.implicitProjectConfig.checkJs": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.nyc_output": true
+  },
+  "cSpell.words": [
+    "abcdefgh"
+  ]
 }

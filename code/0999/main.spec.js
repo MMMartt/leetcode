@@ -33,18 +33,6 @@ const createBoard = board => {
   )
 }
 
-console.log(
-  getIndex(['1a', '6d', '4d', '5c', '5e']),
-  createBoard([
-    getIndex(['5d']),
-    getIndex(['6d', '4d', '5c', '5e']),
-    getIndex(
-      createIndexes([3, 4, 5, 6, 7], 'bcdef').filter(
-        a => !['6d', '4d', '5c', '5e', '5d'].includes(a)
-      )
-    ),
-  ])
-)
 describe('0999-solution', () => {
   it('should get basic solution', () => {
     assert.equal(solution(createBoard([[0], [], []])), 0)

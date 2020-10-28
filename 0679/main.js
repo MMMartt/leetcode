@@ -102,7 +102,7 @@ const calcTree = (tree, c) => {
       '/': (a, b) => a / b,
     }[op])
   return tree.reduceRight((acc, curr) => {
-    if (c) console.log(stack, c)
+    // if (c) console.log(stack, c)
     if (isNaN(curr)) {
       acc = calc(curr)(stack.pop(), stack.pop())
       stack.push(acc)
@@ -120,7 +120,7 @@ const judgePoint24 = nums => {
     return Math.abs(24 - calcTree(tree)) < 0.001
   })
   // (9-1)*(1+2)
-  console.log(result)
+  // console.log(result)
   return !!result
 }
 

@@ -58,4 +58,4 @@ const minDiffInBST = root => {
   }, [])[1]
 }
 
-module.exports = minDiffInBST
+export default minDiffInBST

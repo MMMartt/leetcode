@@ -50,4 +50,4 @@ const findMedianSortedArrays = (a, b) => {
   return null
 }
 
-module.exports = findMedianSortedArrays
+export default findMedianSortedArrays

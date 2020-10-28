@@ -1,8 +1,3 @@
-const solution51 = require('../0051/main').solution
+import { solution as s } from '../0051/main'
 
-module.exports = {
-  /**
-   * @param {number} n
-   */
-  solution: n => solution51(n).length,
-}
+export const solution = n => s(n).length

@@ -52,4 +52,4 @@ const maxProfit = (prices, fee) => {
   return profit
 }
 
-module.exports = maxProfit
+export default maxProfit

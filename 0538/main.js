@@ -49,4 +49,4 @@ const convertBST = root => {
   return root
 }
 
-module.exports = convertBST
+export default convertBST

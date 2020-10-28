@@ -67,4 +67,4 @@ const numDecodings = s => {
   return secCount
 }
 
-module.exports = numDecodings
+export default numDecodings

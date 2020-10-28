@@ -27,4 +27,4 @@ const myPow = (x, n) => {
   )[0]
 }
 
-module.exports = myPow
+export default myPow

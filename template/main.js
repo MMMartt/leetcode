@@ -6,4 +6,4 @@ const solution = arg => {
   return true
 }
 
-module.exports = solution
+export default solution

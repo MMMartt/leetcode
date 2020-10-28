@@ -99,4 +99,4 @@ const longestCommonSubsequence = (a, b) => {
   return c
 }
 
-module.exports = longestCommonSubsequence
+export default longestCommonSubsequence

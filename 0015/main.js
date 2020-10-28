@@ -86,4 +86,4 @@ const threeSum = nums => {
   return result
 }
 
-module.exports = threeSum
+export default threeSum

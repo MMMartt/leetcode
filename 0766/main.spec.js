@@ -1,9 +1,9 @@
-const assert = require('assert')
-const solution = require('./main')
+import { strictEqual } from 'assert'
+import solution from './main'
 
 describe('0766-solution', () => {
   it('should get [[1,2,3,4],[5,1,2,3],[9,5,1,2]]', () => {
-    assert.equal(
+    strictEqual(
       solution([
         [1, 2, 3, 4],
         [5, 1, 2, 3],
@@ -13,7 +13,7 @@ describe('0766-solution', () => {
     )
   })
   it('should get [[1,2],[2,2]]', () => {
-    assert.equal(
+    strictEqual(
       solution([
         [1, 2],
         [2, 2],
@@ -22,9 +22,9 @@ describe('0766-solution', () => {
     )
   })
   it('should get [[1]]', () => {
-    assert.equal(solution([[1]]), true)
+    strictEqual(solution([[1]]), true)
   })
   it('should get [[1],[1]]', () => {
-    assert.equal(solution([[1], [1]]), true)
+    strictEqual(solution([[1], [1]]), true)
   })
 })

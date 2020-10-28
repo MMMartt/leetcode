@@ -13,7 +13,7 @@ function TreeNode(val) {
  * @param {?TreeNode} rawObject
  * @returns {number[]}
  */
-const leetcodeBfs = rawObject => {
+export const leetcodeBfs = rawObject => {
   const nodeQueue = []
   let node = rawObject
   const result = []
@@ -38,7 +38,7 @@ const leetcodeBfs = rawObject => {
  * @param {number[]} array
  * @returns {?TreeNode}
  */
-const leetcodeArray2Node = array => {
+export const leetcodeArray2Node = array => {
   if (array.length === 0) {
     return null
   }
@@ -84,4 +84,3 @@ const inOrder = tree => {
     ? [...inOrder(tree.left), tree.val, ...inOrder(tree.right)]
     : []
 }
-module.exports = { leetcodeBfs, leetcodeArray2Node }

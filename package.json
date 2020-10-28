@@ -1,15 +1,17 @@
 {
   "license": "WTFPL",
+  "type": "module",
   "scripts": {
     "new": "node modify new",
     "delete": "node modify remove",
-    "test": "mocha [0-9]*/*.spec.js"
+    "test": "mocha --es-module-specifier-resolution=node [0-9]*/*.spec.js",
+    "nyan": "mocha --es-module-specifier-resolution=node [0-9]*/*.spec.js --reporter=nyan"
   },
   "dependencies": {
-    "mocha": "^5.0.4"
+    "mocha": "^8.2.0"
   },
   "devDependencies": {
-    "@types/mocha": "^8.0.0",
+    "@types/mocha": "^8.0.3",
     "nyc": "^15.1.0"
   }
 }

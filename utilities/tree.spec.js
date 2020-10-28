@@ -1,17 +1,17 @@
-const { leetcodeBfs, leetcodeArray2Node } = require('./tree')
-const assert = require('assert')
+import { leetcodeBfs, leetcodeArray2Node } from './tree'
+import { deepStrictEqual } from 'assert'
 
 describe('tree utility test', () => {
   it('should get [ 6, 3, 5, null, 2, 0, null, null, 1 ]', () => {
-    assert.deepEqual(
+    deepStrictEqual(
       [6, 3, 5, null, 2, 0, null, null, 1],
       leetcodeBfs(leetcodeArray2Node([6, 3, 5, null, 2, 0, null, null, 1]))
     )
   })
   it('should get []', () => {
-    assert.deepEqual([], leetcodeBfs(leetcodeArray2Node([])))
+    deepStrictEqual([], leetcodeBfs(leetcodeArray2Node([])))
   })
   it('should get [1]', () => {
-    assert.deepEqual([1], leetcodeBfs(leetcodeArray2Node([1])))
+    deepStrictEqual([1], leetcodeBfs(leetcodeArray2Node([1])))
   })
 })

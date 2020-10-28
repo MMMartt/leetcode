@@ -48,4 +48,4 @@ const isToeplitzMatrix = matrix => {
   return true
 }
 
-module.exports = isToeplitzMatrix
+export default isToeplitzMatrix

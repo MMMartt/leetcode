@@ -95,4 +95,4 @@ const crackSafe = (n, k) => {
   return traversalGraph(graph)
 }
 
-module.exports = crackSafe
+export default crackSafe

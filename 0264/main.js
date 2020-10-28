@@ -30,4 +30,4 @@ const nthUglyNumber = n => {
   return [1, ...uglies][n - 1]
 }
 
-module.exports = nthUglyNumber
+export default nthUglyNumber

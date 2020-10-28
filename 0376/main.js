@@ -50,4 +50,4 @@ const wiggleMaxLength = nums => {
   return len
 }
 
-module.exports = wiggleMaxLength
+export default wiggleMaxLength

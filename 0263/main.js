@@ -50,4 +50,4 @@ const isUgly = num => {
 //
 // };
 
-module.exports = isUgly
+export default isUgly

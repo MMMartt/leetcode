@@ -26,7 +26,7 @@
  * @param {number} n
  * @returns {number[]}
  */
-const createChessBoard = n => Array.from(new Array(n * n)).map((_, i) => i)
+export const createChessBoard = n => Array.from(new Array(n * n)).map((_, i) => i)
 
 /**
  * @param {number} a
@@ -53,7 +53,7 @@ const isConflicted = (a, b, n) => {
  * @param {number} position
  * @returns {number[]}
  */
-const getSelectableSquare = (remains, position, n) => {
+export const getSelectableSquare = (remains, position, n) => {
   return remains.filter(i => !isConflicted(i, position, n))
 }
 
@@ -115,14 +115,8 @@ const printChess = (board, n) => {
  * @param {number} n
  * @return {string[][]}
  */
-const solution = n => {
+export const solution = n => {
   const chessBoard = createChessBoard(n)
   // console.log(findResults(chessBoard, n, n))
   return findResults(chessBoard, n, n).map(board => printChess(board, n))
-}
-
-module.exports = {
-  solution,
-  getSelectableSquare,
-  createChessBoard,
 }

@@ -1,5 +1,5 @@
-const assert = require('assert')
-const solution = require('./main')
+import { strictEqual } from 'assert'
+import solution from './main'
 
 /**
  * @param {string[]} ps
@@ -35,15 +35,15 @@ const createBoard = board => {
 
 describe('0999-solution', () => {
   it('should get basic solution', () => {
-    assert.equal(solution(createBoard([[0], [], []])), 0)
+    strictEqual(solution(createBoard([[0], [], []])), 0)
   })
 
   it('should get example 1 solution', () => {
-    assert.equal(solution(createBoard([[19], [], [11, 23, 51]])), 3)
+    strictEqual(solution(createBoard([[19], [], [11, 23, 51]])), 3)
   })
 
   it('should get example 2 solution', () => {
-    assert.equal(
+    strictEqual(
       solution(
         createBoard([
           getIndex(['5d']),
@@ -60,7 +60,7 @@ describe('0999-solution', () => {
   })
 
   it('should get example 3 solution', () => {
-    assert.equal(
+    strictEqual(
       solution([
         ['.', '.', '.', '.', '.', '.', '.', '.'],
         ['.', '.', '.', 'p', '.', '.', '.', '.'],
@@ -76,7 +76,7 @@ describe('0999-solution', () => {
   })
 
   it('should get 3 solutions', () => {
-    assert.equal(
+    strictEqual(
       solution([
         ['.', '.', '.', '.', '.', '.', '.', '.'],
         ['.', '.', '.', 'p', '.', '.', '.', '.'],

@@ -56,4 +56,4 @@ const isSameTree = (p, q) => {
   )
 }
 
-module.exports = isSameTree
+export default isSameTree

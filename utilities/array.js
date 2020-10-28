@@ -4,7 +4,7 @@
  * @param {string} raw "1, 3..18" => [1, 3, 5, 7, 9, 11, 13, 15, 17]
  * @return {number[]}
  */
-const createArrayBySpread = raw => {
+export const createArrayBySpread = raw => {
   const [arrays, end] = raw.split('..')
   const endNum = parseInt(end)
   const [a, b] = arrays.split(',').map(a => parseInt(a.trim()))
@@ -14,8 +14,4 @@ const createArrayBySpread = raw => {
     result.push(a + i * space)
   }
   return result
-}
-
-module.exports = {
-  createArrayBySpread,
 }

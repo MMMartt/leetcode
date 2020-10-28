@@ -79,4 +79,4 @@ const isPossible = nums => {
   return isTrue
 }
 
-module.exports = isPossible
+export default isPossible

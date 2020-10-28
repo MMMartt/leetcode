@@ -27,4 +27,4 @@ const findPeakElement = nums => {
   return peakIndex
 }
 
-module.exports = findPeakElement
+export default findPeakElement

@@ -1,9 +1,9 @@
-const assert = require('assert')
-const solution = require('./main')
-const leetcodeArray2Node = require('../utilities/tree').leetcodeArray2Node
+import { deepStrictEqual } from 'assert'
+import solution from './main'
+import { leetcodeArray2Node } from '../utilities/tree'
 
 describe('0783-solution', () => {
   it('should get [4, 2, 6, 1, 3]', () => {
-    assert.deepEqual(solution(leetcodeArray2Node([4, 2, 6, 1, 3])), 1)
+    deepStrictEqual(solution(leetcodeArray2Node([4, 2, 6, 1, 3])), 1)
   })
 })

@@ -31,4 +31,4 @@ const longestValidParentheses = str => {
   return max
 }
 
-module.exports = longestValidParentheses
+export default longestValidParentheses

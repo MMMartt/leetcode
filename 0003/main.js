@@ -27,4 +27,4 @@ const lengthOfLongestSubstring = s => {
   return max
 }
 
-module.exports = lengthOfLongestSubstring
+export default lengthOfLongestSubstring

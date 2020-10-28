@@ -1,5 +1,5 @@
-const assert = require('assert')
-const solution = require('./main')
+import { strictEqual } from 'assert'
+import solution from './main'
 
 describe('0100-solution', () => {
   const makeTree = ([first, left, right]) => {
@@ -10,7 +10,7 @@ describe('0100-solution', () => {
     }
   }
   it('should get [1,2,null]', () => {
-    assert.equal(
+    strictEqual(
       solution(
         makeTree([1, [2, null, null], null]),
         makeTree([1, [2, null, null], null])
@@ -19,7 +19,7 @@ describe('0100-solution', () => {
     )
   })
   it('should get [1,2,null] [1,null,2]', () => {
-    assert.equal(
+    strictEqual(
       solution(
         makeTree([1, null, [2, null, null]]),
         makeTree([1, [2, null, null], null])

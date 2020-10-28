@@ -105,4 +105,4 @@ const getMaxRepetitions = (s1, n1, s2, n2) => {
   return (m - (m % n2)) / n2
 }
 
-module.exports = getMaxRepetitions
+export default getMaxRepetitions

@@ -38,4 +38,4 @@ const twoSum = ([first, ...nums], target) => {
 }
 // ok... I should use hash table :<
 
-module.exports = twoSum
+export default twoSum

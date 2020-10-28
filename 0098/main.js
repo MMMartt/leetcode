@@ -52,4 +52,4 @@ const isValidBST = root => {
   return valid
 }
 
-module.exports = isValidBST
+export default isValidBST

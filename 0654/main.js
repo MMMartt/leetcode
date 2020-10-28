@@ -69,4 +69,4 @@ const constructMaximumBinaryTree = function (nums) {
   // return insertTo(constructMaximumBinaryTree(others), first)
 }
 
-module.exports = constructMaximumBinaryTree
+export default constructMaximumBinaryTree

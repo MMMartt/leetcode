@@ -71,9 +71,9 @@ const maxSumOfThreeSubarrays = (nums, k) => {
       oneIndex++
     }
   })
-  // assert.deepEqual(solution([1, 2, 1, 2, 6, 7, 5, 1], 2), [0, 3, 5])
+  // assert.deepStrictEqual(solution([1, 2, 1, 2, 6, 7, 5, 1], 2), [0, 3, 5])
   // console.log(oneSets, twoSets, threeSets)
   return threeSets[threeIndex - 1][INDEXES]
 }
 
-module.exports = maxSumOfThreeSubarrays
+export default maxSumOfThreeSubarrays

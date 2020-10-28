@@ -1,7 +1,17 @@
-const fs = require('fs')
-const readline = require('readline')
-const path = require('path')
-const { stdout, stdin } = require('process')
+import {
+  existsSync,
+  mkdirSync,
+  copyFileSync,
+  writeFileSync,
+  readFileSync,
+  readdirSync,
+  lstatSync,
+  rmdirSync,
+  unlinkSync,
+} from 'fs'
+import { createInterface } from 'readline'
+import { join } from 'path'
+import { stdout, stdin } from 'process'
 
 const argv = process.argv
 
@@ -13,16 +23,14 @@ const ERROR_TYPES = {
  * @param {string} name
  */
 const create = name => {
-  if (fs.existsSync(name)) {
+  if (existsSync(name)) {
     console.log(`!DIR ${name} exists`)
   } else {
-    fs.mkdirSync(name)
-    fs.copyFileSync('./template/main.js', `${name}/main.js`)
-    fs.writeFileSync(
+    mkdirSync(name)
+    copyFileSync('./template/main.js', `${name}/main.js`)
+    writeFileSync(
       `${name}/main.spec.js`,
-      fs
-        .readFileSync('./template/main.spec.js', 'utf-8')
-        .replace('example', name)
+      readFileSync('./template/main.spec.js', 'utf-8').replace('example', name)
     )
     // fs.copyFileSync('./template/main.spec.js', `${dir}/main.spec.js`)
     console.log(`
@@ -39,11 +47,11 @@ const create = name => {
  * @return {string[]} file path names
  */
 const getFolderFiles = pathName => {
-  return fs.readdirSync(pathName).reduce(
+  return readdirSync(pathName).reduce(
     (names, name) => {
-      const joinedPath = path.join(pathName, name)
+      const joinedPath = join(pathName, name)
       return [
-        ...(fs.lstatSync(joinedPath).isDirectory()
+        ...(lstatSync(joinedPath).isDirectory()
           ? getFolderFiles(joinedPath)
           : [joinedPath]),
         ...names,
@@ -58,7 +66,7 @@ const getFolderFiles = pathName => {
  * @param {Function} r
  */
 const ensure = (files, r) => {
-  const rl = readline.createInterface({
+  const rl = createInterface({
     input: stdin,
     output: stdout,
     terminal: false,
@@ -67,9 +75,7 @@ const ensure = (files, r) => {
     rl.close()
     switch (input.trim()) {
       case 'Y':
-        files.forEach(f =>
-          f.endsWith('/') ? fs.rmdirSync(f) : fs.unlinkSync(f)
-        )
+        files.forEach(f => (f.endsWith('/') ? rmdirSync(f) : unlinkSync(f)))
         r()
         break
       case 'N':
@@ -87,7 +93,7 @@ const ensure = (files, r) => {
  */
 const remove = name => {
   return new Promise(r => {
-    if (!fs.existsSync(name)) {
+    if (!existsSync(name)) {
       console.log(`!DIR ${name} doesn't exist`)
       r()
     } else {

@@ -1,10 +1,10 @@
-const assert = require('assert')
-const solution = require('./main')
-const leetcodeBfs = require('../utilities/tree').leetcodeBfs
+import { deepStrictEqual } from 'assert'
+import solution from './main'
+import { leetcodeBfs } from '../utilities/tree'
 
 describe('0654-solution', () => {
   it('should get [3,2,1,6,0,5]', () => {
-    assert.deepEqual(leetcodeBfs(solution([3, 2, 1, 6, 0, 5])), [
+    deepStrictEqual(leetcodeBfs(solution([3, 2, 1, 6, 0, 5])), [
       6,
       3,
       5,
@@ -17,9 +17,9 @@ describe('0654-solution', () => {
     ])
   })
   it('should get []', () => {
-    assert.deepEqual(leetcodeBfs(solution([])), [])
+    deepStrictEqual(leetcodeBfs(solution([])), [])
   })
   it('should get [1]', () => {
-    assert.deepEqual(leetcodeBfs(solution([1])), [1])
+    deepStrictEqual(leetcodeBfs(solution([1])), [1])
   })
 })

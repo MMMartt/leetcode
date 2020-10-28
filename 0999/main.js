@@ -85,4 +85,4 @@ const numRookCaptures = function (board) {
   return result
 }
 
-module.exports = numRookCaptures
+export default numRookCaptures

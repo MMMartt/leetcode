@@ -50,4 +50,4 @@ const findLength = (a, b) => {
   return max
 }
 
-module.exports = findLength
+export default findLength

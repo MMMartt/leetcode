@@ -34,7 +34,7 @@ const pickN = (l, n) => {
  * @param {number[]} list
  * @return {number[][][]}
  */
-const getALlCombines = list => {
+export const getALlCombines = list => {
   if (list.length < 2) return null
   const possibleLens = Array.from(new Array(list.length))
     .map((_, i) => i)
@@ -55,7 +55,7 @@ const getALlCombines = list => {
  * @param {number[]} remains
  * @returns {Array<'*'|'-'|'/'|'+'|number>[]}
  */
-const getAllTrees = remains => {
+export const getAllTrees = remains => {
   /* TODO: necessary??? */ if (remains.length === 0) return []
   if (remains.length === 1) return [remains]
   const combines = getALlCombines(remains)
@@ -92,7 +92,7 @@ const getAllTrees = remains => {
   return result
 }
 
-const calcTree = (tree, c) => {
+export const calcTree = (tree, c) => {
   const stack = []
   const calc = op =>
     ({
@@ -114,7 +114,7 @@ const calcTree = (tree, c) => {
  * @param {number[]} nums
  * @return {boolean}
  */
-const judgePoint24 = nums => {
+export const judgePoint24 = nums => {
   const result = getAllTrees(nums).find(tree => {
     /** cuz only numbers can be leaf node, tree may be described as '* 4 - 1 / 2 3' */
     return Math.abs(24 - calcTree(tree)) < 0.001
@@ -122,11 +122,4 @@ const judgePoint24 = nums => {
   // (9-1)*(1+2)
   // console.log(result)
   return !!result
-}
-
-module.exports = {
-  judgePoint24,
-  getAllTrees,
-  getALlCombines,
-  calcTree,
 }

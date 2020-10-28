@@ -39,11 +39,27 @@
 
 // 1 <= n <= 10^5
 /**
- * @param {number} arg
+ * @param {number} n
  * @return {boolean}
  */
-const solution = arg => {
-  return true
+const winnerSquareGame = n => {
+  const sqrtNums = Array(Math.floor(Math.sqrt(n)))
+    .fill(0)
+    .map((_, i) => (i + 1) * (i + 1))
+  if (sqrtNums.includes(n)) return true
+
+  const reachable = Array(n).fill(false)
+
+  for (let i = 0; i < n; i++) {
+    if (sqrtNums.indexOf(i) > -1) continue
+    if (reachable[i - 1]) continue
+    sqrtNums
+      .filter(sn => sn + i <= n)
+      .forEach(sn => {
+        reachable[sn + i - 1] = true
+      })
+  }
+  return reachable[n - 1]
 }
 
-export default solution
+export default winnerSquareGame
